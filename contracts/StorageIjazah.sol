@@ -34,7 +34,7 @@ contract StorageIjazah {
         return allIjazahs;
     }
 
-    function getIjazahByIdAndTxHash(uint256 _id, bytes32 _txHash) public view returns (string memory, uint256, string memory) {
+    function getIjazahByIdAndTxHash(uint256 _id, bytes32 _txHash) public view returns (string memory, string memory, string memory) {
         require(_id < nextIjazahId, "Invalid Ijazah ID");
         require(ijazahs[_id].txHash == _txHash, "Transaction hash does not match");
         return (ijazahs[_id].nama, ijazahs[_id].ipk, ijazahs[_id].universitas);
@@ -49,5 +49,11 @@ contract StorageIjazah {
         require(_id < nextIjazahId, "Invalid Ijazah ID");
         ijazahs[_id].nama = _nama;
     }
-
+    function updateData(uint256 _id, string memory _nama, string memory _ipk, string memory _universitas, bytes32 _txHash) public {
+        require(_id < nextIjazahId, "Invalid Ijazah ID");
+        ijazahs[_id].nama = _nama;
+        ijazahs[_id].ipk = _ipk;
+        ijazahs[_id].universitas = _universitas;
+        ijazahs[_id].txHash = _txHash;
+    }
 }
