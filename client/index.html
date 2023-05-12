@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LOGIN</title>
+    <link rel="stylesheet" type="text/css" href="style1.css" />
+  </head>
+  <body>
+    <img src="logo_telu.png" width="180" height="200" />
+    <form>
+      <h2>LOGIN</h2>
+      <label>Username</label>
+      <input type="text" id="username" placeholder="Username" /><br />
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Password" /><br />
+
+      <button type="button" onclick="login()">Login</button>
+      <p id="error"></p>
+    </form>
+    <div class="cont3">
+      <a class="cont3" href="verifikasi.php">Verifikasi</a>
+    </div>
+
+    <script>
+      function login() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        // Validate username and password
+        if (username == "" || password == "") {
+          document.getElementById("error").innerHTML =
+            "Please enter both username and password";
+          return;
+        }
+
+        // Send login request to server
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "success") {
+              // Redirect to success page
+              window.location.href = "success.php";
+            } else {
+              // Display error message
+              document.getElementById("error").innerHTML =
+                "Invalid username or password";
+            }
+          }
+        };
+        xhttp.open("POST", "login.php", true);
+        xhttp.setRequestHeader(
+          "Content-type",
+          "application/x-www-form-urlencoded"
+        );
+        xhttp.send("uname=" + username + "&password=" + password);
+      }
+    </script>
+  </body>
+</html>

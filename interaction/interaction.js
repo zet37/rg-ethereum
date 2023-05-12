@@ -32,13 +32,12 @@ const abi = [
       },
       {
         internalType: "bytes32",
-        name: "txHash",
+        name: "uniqueHash",
         type: "bytes32",
       },
     ],
     stateMutability: "view",
     type: "function",
-    constant: true,
   },
   {
     inputs: [],
@@ -52,7 +51,6 @@ const abi = [
     ],
     stateMutability: "view",
     type: "function",
-    constant: true,
   },
   {
     inputs: [
@@ -105,7 +103,7 @@ const abi = [
           },
           {
             internalType: "bytes32",
-            name: "txHash",
+            name: "uniqueHash",
             type: "bytes32",
           },
         ],
@@ -116,7 +114,6 @@ const abi = [
     ],
     stateMutability: "view",
     type: "function",
-    constant: true,
   },
   {
     inputs: [
@@ -127,11 +124,11 @@ const abi = [
       },
       {
         internalType: "bytes32",
-        name: "_txHash",
+        name: "_uniqueHash",
         type: "bytes32",
       },
     ],
-    name: "getIjazahByIdAndTxHash",
+    name: "getIjazahByIdAnduniqueHash",
     outputs: [
       {
         internalType: "string",
@@ -151,7 +148,6 @@ const abi = [
     ],
     stateMutability: "view",
     type: "function",
-    constant: true,
   },
   {
     inputs: [
@@ -162,11 +158,11 @@ const abi = [
       },
       {
         internalType: "bytes32",
-        name: "_txHash",
+        name: "_uniqueHash",
         type: "bytes32",
       },
     ],
-    name: "updateTxHash",
+    name: "updateuniqueHash",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -213,7 +209,7 @@ const abi = [
       },
       {
         internalType: "bytes32",
-        name: "_txHash",
+        name: "_uniqueHash",
         type: "bytes32",
       },
     ],
@@ -223,6 +219,7 @@ const abi = [
     type: "function",
   },
 ];
+
 const contractAddress = "0x4674184eeb73cCBcD046f8C77D04356FA978B92f";
 const accountAddress = "0xA2A31000Ed7e6139C22070c325849AFCd6dB8739";
 const privateKey =
